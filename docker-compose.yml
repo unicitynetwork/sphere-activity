@@ -1,0 +1,15 @@
+services:
+  activity:
+    build: .
+    container_name: sphere-activity
+    restart: unless-stopped
+    user: "${UID:-1000}:${GID:-1000}"
+    ports:
+      - "3013:3001"
+    environment:
+      - PORT=3001
+      - DATABASE_URL=/data/activities.db
+      - ACTIVITY_API_KEY=${ACTIVITY_API_KEY}
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-https://unicitynetwork.github.io,https://sphere.unicity.network}
+    volumes:
+      - ./data:/data

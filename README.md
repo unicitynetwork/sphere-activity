@@ -29,6 +29,16 @@ npm run build
 npm start
 ```
 
+## Docker
+
+```bash
+# Create data directory with your user permissions
+mkdir -p ./data
+
+# Start container (uses your UID/GID to avoid permission issues)
+UID=$(id -u) GID=$(id -g) docker compose up -d --build
+```
+
 ## Configuration
 
 | Variable | Description | Default |
