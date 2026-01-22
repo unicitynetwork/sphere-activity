@@ -121,6 +121,7 @@ activities.post('/', bearerAuth, async (c) => {
     'bet_placed',
     'otc_purchase',
     'merch_order',
+    'pokemon_purchase',
   ];
   if (!validKinds.includes(body.kind)) {
     return c.json({ error: `Invalid kind. Must be one of: ${validKinds.join(', ')}` }, 400);
